@@ -1,0 +1,11 @@
+declare @xmlOut varchar(8000)  
+Declare @RequestText as varchar(8000);  
+set @RequestText=  
+''  
+exec spHTTPRequest  
+'http://localhost/testwebservices/helloworldservice.asmx',  
+'POST',  
+@RequestText,  
+'http://tempuri.org/CreateOrderForMe',   -- this is your SOAPAction:  
+'', '', @xmlOut out  
+select @xmlOut   
